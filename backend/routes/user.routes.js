@@ -1,0 +1,14 @@
+import express from "express";
+import UserController from "../controllers/userController.js";
+import userAuth from "../middlewares/userAuth.middleware.js";
+import uploads from "../middlewares/multer.middleware.js";
+const userController=new UserController();
+const routerUser=express.Router();
+routerUser.post("/register",userController.registerUser);
+routerUser.post("/login",userController.loginUser);
+routerUser.get("/get-profile",userAuth,userController.getProfile);
+routerUser.post("/update-profile",uploads.single("image"),userAuth,userController.updateProfile);
+routerUser.post("/book-appointment",userAuth,userController.bookAppointment);
+routerUser.get("/appointments",userAuth,userController.listAppointments);
+routerUser.post("/cancel-appointment",userAuth,userController.cancelAppointment);
+export default routerUser;

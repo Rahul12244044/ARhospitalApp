@@ -1,0 +1,16 @@
+import express from "express";
+import AdminController from "../controllers/adminController.js";
+import DoctorController from "../controllers/doctorController.js";
+import uploads from "../middlewares/multer.middleware.js";
+import adminAuth from "../middlewares/adminAuth.middleware.js";
+const adminController=new AdminController();
+const doctorController=new DoctorController();
+const adminRouter=express.Router();
+adminRouter.post("/add-doctor",adminAuth,uploads.single("image"),adminController.doctorAdd);
+adminRouter.post("/login",adminController.loginAdmin);
+adminRouter.get("/all-doctors",adminAuth,adminController.allDoctors);
+adminRouter.post("/change-availability",adminAuth,doctorController.changeAvailability);
+adminRouter.get("/appointments",adminAuth,adminController.adminAppointment);
+adminRouter.post("/cancel-appointment",adminAuth,adminController.adminCancelAppointment);
+adminRouter.get("/dashboard",adminAuth,adminController.adminDashborard);
+export default adminRouter;

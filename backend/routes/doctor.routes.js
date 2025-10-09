@@ -1,0 +1,14 @@
+import express from "express";
+import DoctorController from "../controllers/doctorController.js";
+import doctorAuth from "../middlewares/doctorAuth.middleware.js";
+const doctorController=new DoctorController();
+const routerDoctor=express.Router();
+routerDoctor.get("/list",doctorController.getDoctorsData);
+routerDoctor.post("/login",doctorController.loginDoctor);
+routerDoctor.get("/doctor-appointments",doctorAuth,doctorController.appointmentsDoctor);
+routerDoctor.post("/complete-appointment",doctorAuth,doctorController.appointmentComplete);
+routerDoctor.post("/cancel-appointment",doctorAuth,doctorController.appointmentCancel);
+routerDoctor.get("/dashboard-doctor",doctorAuth,doctorController.doctorDashboard);
+routerDoctor.get("/profile",doctorAuth,doctorController.doctorProfile);
+routerDoctor.post("/update-profile",doctorAuth,doctorController.updateDoctorProfile);
+export default routerDoctor;
