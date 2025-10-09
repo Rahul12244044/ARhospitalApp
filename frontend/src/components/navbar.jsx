@@ -102,12 +102,13 @@ const Navbar = () => {
                         )}
                     </div>
                 ) : (
-                    <button
-                        onClick={() => navigate("/login")}
-                        className="text-xl bg-blue-500 text-white rounded-full px-8 py-3 m-auto cursor-pointer hidden md:block hover:bg-blue-600 transition-all"
+                   <button
+                    onClick={() => navigate("/login")}
+                    className="text-sm bg-blue-500 text-white rounded-full px-8 py-3 m-auto cursor-pointer hidden lg:block hover:bg-blue-600 transition-all"
                     >
-                        Create account
+                    Create account
                     </button>
+
                 )}
 
                 {/* Mobile Menu Icon */}
