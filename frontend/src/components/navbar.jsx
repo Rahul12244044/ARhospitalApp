@@ -31,14 +31,6 @@ const Navbar = () => {
                     <li className="py-1">CONTACT</li>
                     <hr className="outline-none h-0.5 bg-blue-500 w-3/5 m-auto hidden"/>
                 </NavLink>
-                <li>
-                    <button
-                        onClick={() => window.open(adminPanelURL, "_blank")}
-                        className="bg-grey-100 text-black px-5 py-2 border w-30 rounded-full border border-gray-300 shadow text-xs hover:bg-blue-600 hover:text-white cursor-pointer transition-all"
-                    >
-                        Admin Panel
-                    </button>
-                </li>
             </ul>
             <div className="flex items-center gap-4">
                 {
@@ -71,12 +63,6 @@ const Navbar = () => {
                         <NavLink onClick={()=>setMenu(false)} to="/doctors">ALL DOCTORS</NavLink>
                         <NavLink onClick={()=>setMenu(false)} to="/about">ABOUT</NavLink>
                         <NavLink onClick={()=>setMenu(false)} to="/contact">CONTACT</NavLink>
-                         <button
-                            onClick={() => { window.open(adminPanelURL, "_blank") }}
-                            className="bg-blue-500 text-black px-5 py-2 rounded-full transition-all"
-                        >
-                            Admin Panel
-                        </button>
                     </ul>
                  </div>
             </div>
