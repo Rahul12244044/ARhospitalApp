@@ -1,7 +1,6 @@
 import RepositoryUser from "../respository/repository.user.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import {mysqlPool} from "../config/mongodb.js";
 import {doctorModel} from "../models/doctorModel.js";
 import {userModel} from "../models/userModel.js";
 import {appointmentModel} from "../models/appointment.model.js";
@@ -27,8 +26,6 @@ export default class UserController{
             const userDoc=await RepositoryUser.registerUser(user);
             console.log("userDoc: ");
             console.log(userDoc);
-            const query = `INSERT INTO users (name, email, password) VALUES (?, ?, ?)`;
-            await mysqlPool.execute(query, [name, email, hashPassword]);
             const token=jwt.sign({id:userDoc._id,email:userDoc.email},process.env.JWT_SECRET)
             res.json({success:true,token});
         }catch(err){
