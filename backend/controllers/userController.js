@@ -16,6 +16,7 @@ export default class UserController{
                 return res.json({success:false,mesage:"enter strong password."});
             }
             const isUserFound=await RepositoryUser.findUserEmail(email);
+            console.log(isUserFound);
             if(isUserFound){
                 return res.json({success:false,message:"Email is already registered."});
             }

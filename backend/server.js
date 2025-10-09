@@ -13,7 +13,23 @@ const app=express();
 // middlewares
 app.use(express.json()); // it is body parser
 app.use(express.urlencoded({extended:true}));
-app.use(cors()); // it allow frontend to connect with backend
+const allowedOrigins = [
+  "https://arhospitalapp.netlify.app",
+  "http://localhost:5173" // for local development
+];
+
+app.use(cors({
+  origin: function(origin, callback){
+    if(!origin) return callback(null, true); // allow Postman or server-to-server requests
+    if(allowedOrigins.indexOf(origin) === -1){
+      const msg = "The CORS policy for this site does not allow access from the specified Origin.";
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true,
+}));
+
 const PORT=process.env.PORT || 4000;
 app.use("/api/admin",adminRouter);
 app.use("/api/doctor",routerDoctor);
