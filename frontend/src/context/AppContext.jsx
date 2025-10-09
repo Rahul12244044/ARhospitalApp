@@ -11,7 +11,7 @@ export const AppContextProvider=(props)=>{
     
     const getDoctorsData=async ()=>{
         try{
-            const {data}=await axios.get("https://arhospitalapp.onrender.com/api/doctor/list");
+            const {data}=await axios.get("https://arhospitalapp-1.onrender.com/api/doctor/list");
             if(data.success){
              setDoctors(data.doctors);   
             }else{
@@ -23,7 +23,8 @@ export const AppContextProvider=(props)=>{
     }
     const loadUserData=async ()=>{
         try{
-            const {data}=await axios.get("https://arhospitalapp.onrender.com/api/user/get-profile",{headers:{token:aToken}});
+          
+            const {data}=await axios.get("https://arhospitalapp-1.onrender.com/api/user/get-profile",{headers:{token:aToken}});
             console.log("user profile data: ");
             console.log(data);
             if(data.success){

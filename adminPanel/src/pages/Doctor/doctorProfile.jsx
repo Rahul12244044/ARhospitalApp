@@ -12,7 +12,7 @@ const DoctorProfile=()=>{
                 fees:profileData.fees,
                 available:profileData.available
             }
-            const {data}=await axios.post("https://arhospitalapp.onrender.com/api/doctor/update-profile",{updateData},{headers:{dToken}});
+            const {data}=await axios.post("https://arhospitalapp-1.onrender.com/api/doctor/update-profile",{updateData},{headers:{dToken}});
             if(data.success){
                 toast.success(data.message);
                 setIsEdit(false);

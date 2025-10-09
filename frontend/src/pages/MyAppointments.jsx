@@ -13,7 +13,7 @@ const MyAppointments = () => {
     const cancelAppointment=async (appointmentId)=>{
         try{
             console.log(appointmentId);
-            const {data}=await axios.post("https://arhospitalapp.onrender.com/api/user/cancel-appointment",{appointmentId},{headers:{token:aToken}});
+            const {data}=await axios.post("https://arhospitalapp-1.onrender.com/api/user/cancel-appointment",{appointmentId},{headers:{token:aToken}});
             if(data.success){
                 toast.success(data.message);
                 getUserAppointments();
@@ -29,7 +29,7 @@ const MyAppointments = () => {
     }
     const getUserAppointments=async ()=>{
         try{
-            const {data}=await axios.get("https://arhospitalapp.onrender.com/api/user/appointments",{headers:{token:aToken}});
+            const {data}=await axios.get("https://arhospitalapp-1.onrender.com/api/user/appointments",{headers:{token:aToken}});
             if(data.success){
                 setAppointments(data.allAppointments.reverse());
                 console.log("allAppointments @@@@@@@@@@@@@@@@@@@@@");

@@ -40,7 +40,7 @@ const DoctorAdd=()=>{
             console.log(backendUrl);
             console.log("aToken: ");
             console.log(aToken);
-            const {data}=await axios.post("https://arhospitalapp.onrender.com/api/admin/add-doctor",formData,{headers:{aToken}});
+            const {data}=await axios.post("https://arhospitalapp-1.onrender.com/api/admin/add-doctor",formData,{headers:{aToken}});
             console.log("data: ");
             console.log(data);
             if(data.success){

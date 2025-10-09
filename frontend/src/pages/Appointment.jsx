@@ -41,7 +41,7 @@ const Appintment = () => {
            const slotDate=day+"-"+month+"-"+year;
            console.log("book appointment @@@@@@@@@@@@@@@@@@@@@@@");
            console.log(slotDate);
-           const {data}=await axios.post("https://arhospitalapp.onrender.com/api/user/book-appointment",{docId,slotDate,slotTime},{headers:{token:aToken}});
+           const {data}=await axios.post("https://arhospitalapp-1.onrender.com/api/user/book-appointment",{docId,slotDate,slotTime},{headers:{token:aToken}});
            if(data.success){
             toast.success(data.message);
             getDoctorsData();
