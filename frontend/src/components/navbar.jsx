@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import { assets } from "../assets/allAssets.js";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext.jsx";
-
+import { FaHospital } from 'react-icons/fa';
 const Navbar = () => {
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
@@ -31,13 +31,12 @@ const Navbar = () => {
     return (
         <div className="flex items-center justify-between text-base py-4 mb-5 border-b border-b-gray-400 relative">
             {/* Logo */}
-            <img
-                onClick={() => navigate("/")}
-                className="w-44 cursor-pointer"
-                src={assets.logo_icon}
-                alt="logo"
-            />
-
+            <div className="flex items-center">
+      <FaHospital className="text-blue-600 w-10 h-10" /> {/* size 40px */}
+      <span className="ml-2 font-bold text-2xl text-blue-900">
+        ARHospital
+      </span>
+    </div>
             {/* Desktop Menu */}
             <ul className="hidden md:flex items-start font-semibold gap-5">
                 <NavLink to="/"><li className="py-1">HOME</li></NavLink>
