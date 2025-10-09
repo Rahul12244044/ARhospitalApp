@@ -15,6 +15,7 @@ app.use(express.json()); // it is body parser
 app.use(express.urlencoded({extended:true}));
 const allowedOrigins = [
   "https://arhospitalapp.netlify.app",
+  "https://arhospitaladminpanel.netlify.app",
   "http://localhost:5173" // for local development
 ];
 
