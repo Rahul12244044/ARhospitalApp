@@ -12,6 +12,8 @@ export const AppContextProvider=(props)=>{
     const getDoctorsData=async ()=>{
         try{
             const {data}=await axios.get("https://arhospitalapp-1.onrender.com/api/doctor/list");
+            console.log("docotor list: ");
+            console.log(data);
             if(data.success){
              setDoctors(data.doctors);   
             }else{

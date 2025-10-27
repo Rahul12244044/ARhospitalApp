@@ -14,22 +14,17 @@ const app=express();
 app.use(express.json()); // it is body parser
 app.use(express.urlencoded({extended:true}));
 const allowedOrigins = [
-  "https://arhospitalapp.netlify.app",
-  "https://arhospitaladminpanel.netlify.app",
-  "http://localhost:5173" // for local development
+  "https://arhospitalar.netlify.app",
+  "https://adminpanelarhospitalar.netlify.app", // ✅ your real admin panel URL
+  "http://localhost:5173" // ✅ for local testing
 ];
 
 app.use(cors({
-  origin: function(origin, callback){
-    if(!origin) return callback(null, true); // allow Postman or server-to-server requests
-    if(allowedOrigins.indexOf(origin) === -1){
-      const msg = "The CORS policy for this site does not allow access from the specified Origin.";
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
-  credentials: true,
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
+
 
 const PORT=process.env.PORT || 4000;
 app.use("/api/admin",adminRouter);
