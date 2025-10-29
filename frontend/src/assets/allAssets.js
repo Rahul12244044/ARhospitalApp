@@ -263,6 +263,22 @@ export const doctors =[
     }
   },
   {
+  id: "doc12",
+  name: "Dr. Kavya Arora",
+  image: doc12,
+  speciality: "Dermatologist",
+  degree: "MBBS, MD Dermatology",
+  experience: 8,
+  about: "A skilled dermatologist specializing in treating skin disorders, acne, allergies, and cosmetic dermatology. Dr. Kavya Arora focuses on personalized skincare and advanced laser treatments to help patients achieve healthy and glowing skin.",
+  fee: 550,
+  email: "kavya.arora@arhospital.com",
+  password: "Kavya@123",
+  address: { 
+    line1: "SkinRevive Clinic", 
+    line2: "Koramangala, Bengaluru" 
+  }
+},
+  {
     id: "doc12",
     name: "Dr. Meera Desai",
     image: doc12,

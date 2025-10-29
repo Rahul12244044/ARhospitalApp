@@ -124,15 +124,9 @@ const Navbar = () => {
                     className={`${showMenu ? "fixed w-full" : "h-0 w-0"} md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all`}
                 >
                     <div className="flex items-center justify-between px-5 py-6">
-                        <img
-                            onClick={() => {
-                                navigate("/");
-                                setShowMenu(false);
-                            }}
-                            className="w-37 cursor-pointer"
-                            src={assets.logo_icon}
-                            alt="logo"
-                        />
+                       <span className="ml-2 font-bold text-2xl text-blue-900">
+                       ARHospital
+                       </span>
                         <img
                             className="w-7 cursor-pointer"
                             onClick={() => setShowMenu(false)}
